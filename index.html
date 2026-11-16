@@ -15,51 +15,57 @@
             <p>我的日語學習筆記</p>
         </div>
         <nav class="nav-links">
-            <a href="#home" class="active">首頁儀表板</a>
-            <a href="#grammar">基礎文法與句型</a>
-            <a href="#verbs">動詞變化特訓</a>
-            <a href="#vocab">生活實用單字</a>
-            <a href="#travel">旅遊實用對話</a>
+            <a href="#" class="nav-item active" onclick="showTab('home', this)">🏠 首頁儀表板</a>
+            <a href="#" class="nav-item" onclick="showTab('grammar', this)">📖 基礎文法與句型</a>
+            <a href="#" class="nav-item" onclick="showTab('verbs', this)">⚡ 動詞變化特訓</a>
+            <a href="#" class="nav-item" onclick="showTab('vocab', this)">🍡 生活實用單字</a>
+            <a href="#" class="nav-item" onclick="showTab('travel', this)">🚃 旅遊實用對話</a>
         </nav>
     </aside>
 
     <!-- 主要內容區 -->
     <main class="main-content">
         <header class="top-bar">
-            <h1>歡迎來到我的日語知識庫</h1>
+            <h1 id="page-title">歡迎來到我的日語知識庫</h1>
             <span class="badge">Level: N5 ~ N4</span>
         </header>
 
-        <!-- 首頁儀表板區塊 -->
-        <section id="home" class="card-grid">
-            <div class="category-card">
-                <h3>📖 基礎文法</h3>
-                <p>整理常用助詞（は、が、に、で）、句型結構與表現方式。</p>
-                <a href="#grammar" class="btn">瀏覽文法</a>
-            </div>
-            <div class="category-card">
-                <h3>⚡ 動詞變化</h3>
-                <p>搞定五段動詞、上一段、下一段與不規則動詞的て形、ます形變化。</p>
-                <a href="#verbs" class="btn">學習動詞</a>
-            </div>
-            <div class="category-card">
-                <h3>🍡 生活單字</h3>
-                <p>記錄動漫、日常對話與興趣中遇到的實用高頻單字。</p>
-                <a href="#vocab" class="btn">查看單字</a>
-            </div>
-        </section>
+        <!-- 1. 首頁儀表板區塊 -->
+        <div id="home" class="tab-content">
+            <section class="card-grid">
+                <div class="category-card">
+                    <h3>📖 基礎文法</h3>
+                    <p>整理常用助詞（は、が、に、で）、授受動詞與句型結構表現。</p>
+                    <button class="btn" onclick="switchFromCard('grammar')">瀏覽文法</button>
+                </div>
+                <div class="category-card">
+                    <h3>⚡ 動詞變化</h3>
+                    <p>搞定五段動詞、上一段、下一段與不規則動詞的て形、ます形變化。</p>
+                    <button class="btn" onclick="switchFromCard('verbs')">學習動詞</button>
+                </div>
+                <div class="category-card">
+                    <h3>🍡 生活單字</h3>
+                    <p>記錄日常對話、音樂文化與興趣中遇到的實用高頻單字。</p>
+                    <button class="btn" onclick="switchFromCard('vocab')">查看單字</button>
+                </div>
+                <div class="category-card">
+                    <h3>🚃 旅遊實用對話</h3>
+                    <p>日本自由行必備！搭電車、點餐、問路與結帳的實戰句型。</p>
+                    <button class="btn" onclick="switchFromCard('travel')">開啟對話</button>
+                </div>
+            </section>
+        </div>
 
-        <!-- 範例筆記頁面：動詞て形變化 -->
-        <section id="grammar" class="content-section">
+        <!-- 2. 基礎文法頁面 -->
+        <section id="grammar" class="content-section tab-content" style="display: none;">
             <div class="post-header">
                 <span class="tag n5">初級 N5</span>
                 <h2>核心文法：授受動詞與日常句型</h2>
                 <p class="post-date">最後更新：2026-11-16</p>
             </div>
-
             <div class="post-body">
                 <h3>1. 核心概念說明</h3>
-                <p>日語的授受動詞用來表達「給予」和「接受」的動作。根據說話者與對象的親疏遠近、長幼尊卑，會使用不同的動詞：<strong>あげる</strong>、<strong>くれる</strong>、<strong>もらう</strong>。</p>
+                <p>日語的授受動詞用來表達「給予」和「接受」的動作。根據說話者與對象的親疏遠近，會使用不同的動詞：<strong>あげる</strong>、<strong>くれる</strong>、<strong>もらう</strong>。</p>
 
                 <h3>2. 句型結構公式</h3>
                 <table class="wiki-table">
@@ -91,21 +97,230 @@
 
                 <h3>3. 生動範例句子</h3>
                 <div class="example-box">
-                    <p class="jp"><span>私（わたし）</span>は<span>母（はは）</span>に<span>花（はな）</span>をあげました。</p>
+                    <p class="jp">私（わたし）は母（はは）に花（はな）をあげました。</p>
                     <p class="zh">我送花給媽媽。</p>
                 </div>
                 <div class="example-box">
-                    <p class="jp"><span>友（とも）</span>だちは私に<span>本（ほん）</span>をくれました。</p>
+                    <p class="jp">友（とも）だちは私に本（ほん）をくれました。</p>
                     <p class="zh">朋友送了我一本書。</p>
                 </div>
 
                 <div class="note-box">
                     <strong>💡 小提示 (Note)：</strong>
-                    <p>使用「もらう」時，動作的來源（給東西的人）後面要接助詞 <strong>「に」</strong> 或 <strong>「から」</strong>，這點在考試和日常會話中非常容易搞混，要特別注意！</p>
+                    <p>使用「もらう」時，動作的來源（給東西的人）後面要接助詞 <strong>「に」</strong> 或 <strong>「から」</strong>，這點在日常會話中非常容易搞混，要特別注意！</p>
                 </div>
             </div>
         </section>
+
+        <!-- 3. 動詞變化頁面 -->
+        <section id="verbs" class="content-section tab-content" style="display: none;">
+            <div class="post-header">
+                <span class="tag n5">初級 N5</span>
+                <h2>動詞變化特訓：超重要「て形」規則整理</h2>
+                <p class="post-date">最後更新：2026-11-16</p>
+            </div>
+            <div class="post-body">
+                <h3>1. 核心概念說明</h3>
+                <p>「て形」是日語動詞變化中最關鍵的一環，學會之後就能連接句子（～て、～）、表示請求（～てください）以及正在進行式（～ています）。</p>
+
+                <h3>2. 動詞分類與變化公式</h3>
+                <table class="wiki-table">
+                    <tr>
+                        <th>動詞分類</th>
+                        <th>語尾特徵（ます形前）</th>
+                        <th>て形變化規則</th>
+                        <th>範例（ます形 ➡ て形）</th>
+                    </tr>
+                    <tr>
+                        <td><strong>I 類（五段）</strong></td>
+                        <td>い・ち・り</td>
+                        <td>促音便（って）</td>
+                        <td>買います ➡ <strong>買って</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>I 類（五段）</strong></td>
+                        <td>み・び・に</td>
+                        <td>撥音便（んで）</td>
+                        <td>飲みます ➡ <strong>飲んで</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>I 類（五段）</strong></td>
+                        <td>き / ぎ</td>
+                        <td>い音便（いて / いで）</td>
+                        <td>書きます ➡ <strong>書いて</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>II 類（上下一段）</strong></td>
+                        <td>え段音 / 特殊い段</td>
+                        <td>直接去掉ます + て</td>
+                        <td>食べます ➡ <strong>食べて</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>III 類（不規則）</strong></td>
+                        <td>します / 来ます</td>
+                        <td>して / 来（き）て</td>
+                        <td>勉強します ➡ <strong>勉強して</strong></td>
+                    </tr>
+                </table>
+
+                <h3>3. 生動範例句子</h3>
+                <div class="example-box">
+                    <p class="jp">ちょっと待（ま）ってください。</p>
+                    <p class="zh">請稍等一下。（待つ ➡ 待って）</p>
+                </div>
+                <div class="example-box">
+                    <p class="jp">今（いま）、日本語（にほんご）を勉強（べんきょう）しています。</p>
+                    <p class="zh">現在正在學習日文。</p>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 小提示 (Note)：</strong>
+                    <p>五段動詞中有一個大例外：<strong>「行きます（去）」</strong> 的て形不是「行いて」，而是促音便的 <strong>「行って（いって）」</strong>，一定要背起來！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 生活實用單字頁面 -->
+        <section id="vocab" class="content-section tab-content" style="display: none;">
+            <div class="post-header">
+                <span class="tag n5">實用主題</span>
+                <h2>生活實用單字：日本文化與日常高頻詞</h2>
+                <p class="post-date">最後更新：2026-11-16</p>
+            </div>
+            <div class="post-body">
+                <h3>1. 核心概念說明</h3>
+                <p>整理在日常對話、觀看日本影片或體驗生活文化時，最常出現且實用的高頻率詞彙。</p>
+
+                <h3>2. 單字列表整理</h3>
+                <table class="wiki-table">
+                    <tr>
+                        <th>日文單字</th>
+                        <th>假名讀音</th>
+                        <th>中文意思</th>
+                        <th>詞性</th>
+                    </tr>
+                    <tr>
+                        <td><strong>おすすめ</strong></td>
+                        <td>おすすめ</td>
+                        <td>推薦、拿手好菜</td>
+                        <td>名詞 / 動詞</td>
+                    </tr>
+                    <tr>
+                        <td><strong>雰囲気</strong></td>
+                        <td>ふんいき</td>
+                        <td>氣氛、氛圍</td>
+                        <td>名詞</td>
+                    </tr>
+                    <tr>
+                        <td><strong>懐（なつ）かしい</strong></td>
+                        <td>なつかしい</td>
+                        <td>令人懷念的</td>
+                        <td>い形容詞</td>
+                    </tr>
+                    <tr>
+                        <td><strong>便利（べんり）</strong></td>
+                        <td>べんり</td>
+                        <td>方便的</td>
+                        <td>な形容詞</td>
+                    </tr>
+                </table>
+
+                <h3>3. 生動範例句子</h3>
+                <div class="example-box">
+                    <p class="jp">この店（みせ）のおすすめは何（なん）ですか。</p>
+                    <p class="zh">請問這家店的推薦餐點是什麼？</p>
+                </div>
+                <div class="example-box">
+                    <p class="jp">この曲（きょく）を聴（き）くと、昔（むかし）を思（おも）い出（だ）して懐かしいです。</p>
+                    <p class="zh">一聽到這首歌，就會想起以前的事，覺得很懷念。</p>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 小提示 (Note)：</strong>
+                    <p>「雰囲気」的正確讀音是 <strong>ふんいき (fun-i-ki)</strong>，很多人在口語中容易不小心唸成「ふいんき」，打字時也要注意輸入法拼法喔！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 旅遊實用對話頁面 -->
+        <section id="travel" class="content-section tab-content" style="display: none;">
+            <div class="post-header">
+                <span class="tag n5">旅遊實戰</span>
+                <h2>旅遊實用對話：交通搭車與餐廳點餐</h2>
+                <p class="post-date">最後更新：2026-11-16</p>
+            </div>
+            <div class="post-body">
+                <h3>1. 核心概念說明</h3>
+                <p>在日本自由行搭乘電車轉乘、尋找月台，或是走進居酒屋與餐廳點餐時，只要掌握以下幾個萬用句型就能順利溝通。</p>
+
+                <h3>2. 情境萬用句型公式</h3>
+                <table class="wiki-table">
+                    <tr>
+                        <th>使用情境</th>
+                        <th>萬用日文句型</th>
+                        <th>中文意思</th>
+                    </tr>
+                    <tr>
+                        <td><strong>詢問搭車月台</strong></td>
+                        <td>[地點] へ行く電車は<strong>何番線（なんばんせん）</strong>ですか。</td>
+                        <td>請問往 [地點] 的電車在第幾月台？</td>
+                    </tr>
+                    <tr>
+                        <td><strong>餐廳點餐</strong></td>
+                        <td>[餐點] を <strong>[數量] つ</strong> お願いします。</td>
+                        <td>麻煩給我 [數量] 份 [餐點]。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>結帳買單</strong></td>
+                        <td>すみません、<strong>お会計（かいけい）</strong>をお願いします。</td>
+                        <td>不好意思，麻煩請結帳。</td>
+                    </tr>
+                </table>
+
+                <h3>3. 生動範例句子</h3>
+                <div class="example-box">
+                    <p class="jp">すみません、新宿（しんじゅく）へ行（い）く電車（でんしゃ）は何番線（なんばんせん）ですか。</p>
+                    <p class="zh">不好意思，請問往新宿的電車是在第幾月台？</p>
+                </div>
+                <div class="example-box">
+                    <p class="jp">生（なま）ビールを二（ふた）つと、唐揚（からあ）げを一つお願いします。</p>
+                    <p class="zh">麻煩給我兩杯生啤酒，和一份炸雞塊。</p>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 小提示 (Note)：</strong>
+                    <p>日本電車種類很多（普通、急行、特急），上車前可以先問站務員：<strong>「この電車は [站名] に止（と）まりますか？（這班車有停 [站名] 嗎？）」</strong>，就不怕坐過站囉！</p>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- 互動切換分頁的 JavaScript -->
+    <script>
+        function showTab(tabId, element) {
+            // 隱藏所有分頁內容
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.style.display = 'none');
+
+            // 顯示選中的分頁
+            document.getElementById(tabId).style.display = 'block';
+
+            // 更新側邊欄按鈕狀態
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+
+        function switchFromCard(tabId) {
+            // 找到對應的側邊欄連結並觸發點擊
+            const navItems = document.querySelectorAll('.nav-item');
+            const map = { 'grammar': 1, 'verbs': 2, 'vocab': 3, 'travel': 4 };
+            showTab(tabId, navItems[map[tabId]]);
+        }
+    </script>
 
 </body>
 </html>
